@@ -1,9 +1,12 @@
 # MicroService
-A learning project for frontend and backend development.
+This is a learning project for frontend and backend development. The project is aimed to build a http server, including frontend(html/css/js) and backend(golang). No tools like tomcat or nginx will be used in this project, thus, the golang will implement all the work.
+
+The function is similar to an opms system. Firstly, we hope to build a mini system, including basic CRUD operation, user management and permission management; Secondly, the Event Sourcing pattern is going to be used in our database; Thirdly, we will build an frontend system similar to the beego case `http://opms.demo.milu365.cn/`. Finally, we need to expand this system to tango, which is the framework used in our project.
 
 ## backend
 
 ### Gorilla
+A powerful URL router and dispatcher for golang.
 
 #### Basic usage
 
@@ -55,7 +58,7 @@ The basic jquery framework is used in our micro service.
 </body>
 </html>
 ```
-
+- the above code `<script src="js/hello.js"> </script>` cannot be changed to `<script src="js/hello.js" />`
 
 ```js
 // ajax refresh local data
