@@ -12,7 +12,6 @@ import (
 
 var t *template.Template
 
-
 func init() {
 	t = template.Must(template.ParseFiles("assets/templates/index.html"))
 }
@@ -39,12 +38,12 @@ func initRoutes(mx *mux.Router, formatter *render.Render) {
 		}
 	}
 
-	mx.HandleFunc("/", homeHandler()).Methods("GET")
+	mx.HandleFunc("/login", getLogin()).Methods("GET")
+	mx.HandleFunc("/login", postLogin()).Methods("POST")
+	mx.HandleFunc("/api/test", testHandler(formatter))
+
 	mx.HandleFunc("/cookies/write", cookieWriteHandler(formatter)).Methods("GET")
 	mx.HandleFunc("/cookies/read", cookieReadHandler(formatter)).Methods("GET")
-	mx.PathPrefix("/").Handler(http.FileServer(http.Dir(webroot + "/assets")))
-	
+	mx.PathPrefix("/").Handler(http.FileServer(http.Dir(webroot + "/")))
+
 }
-
-
-
