@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"text/template"
 	"time"
 
 	"github.com/unrolled/render"
@@ -46,6 +47,7 @@ func getLogin() http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
 		fmt.Println("==getLogin==")
 		data := sampleContent{ID: "8675309", Content: "Hello from Go!"}
+		t := template.Must(template.ParseFiles("assets/templates/login.html"))
 		t.Execute(w, data)
 	}
 }
@@ -67,6 +69,15 @@ func postLogin() http.HandlerFunc {
 		fmt.Println("user:", u)
 	}
 
+}
+
+func getMain() http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request) {
+		fmt.Println("==getMain==")
+		data := sampleContent{ID: "8675309", Content: "Hello from Go!"}
+		t := template.Must(template.ParseFiles("assets/templates/login.html"))
+		t.Execute(w, data)
+	}
 }
 
 func cookieWriteHandler(formatter *render.Render) http.HandlerFunc {

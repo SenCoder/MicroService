@@ -3,18 +3,17 @@ package main
 import (
 	"net/http"
 	"os"
-	"text/template"
 
 	"github.com/codegangsta/negroni"
 	"github.com/gorilla/mux"
 	"github.com/unrolled/render"
 )
 
-var t *template.Template
+//var t *template.Template
 
-func init() {
-	t = template.Must(template.ParseFiles("assets/templates/index.html"))
-}
+//func init() {
+//	t = template.Must(template.ParseFiles("assets/templates/index.html"))
+//}
 
 func NewServer() *negroni.Negroni {
 	n := negroni.Classic()
@@ -40,6 +39,8 @@ func initRoutes(mx *mux.Router, formatter *render.Render) {
 
 	mx.HandleFunc("/login", getLogin()).Methods("GET")
 	mx.HandleFunc("/login", postLogin()).Methods("POST")
+	mx.HandleFunc("/", getMain()).Methods("GET")
+
 	mx.HandleFunc("/api/test", testHandler(formatter))
 
 	mx.HandleFunc("/cookies/write", cookieWriteHandler(formatter)).Methods("GET")
