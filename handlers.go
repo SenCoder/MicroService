@@ -75,7 +75,7 @@ func getMain() http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
 		fmt.Println("==getMain==")
 		data := sampleContent{ID: "8675309", Content: "Hello from Go!"}
-		t := template.Must(template.ParseFiles("assets/templates/login.html"))
+		t := template.Must(template.ParseFiles("assets/templates/index.html"))
 		t.Execute(w, data)
 	}
 }
