@@ -73,7 +73,4 @@ $(document).ready(function() {
 ```
 
 
-## Question
-- How to solve the problem that the router '/api/test' doesn't work ?
-- How to resolve parameters in gorilla ?
-- How to build a more complicated html page and jump to another fone ?
+## User
